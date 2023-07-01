@@ -1,0 +1,21 @@
+---
+import { Image } from "@astrojs/image/components";
+
+interface Props {
+  height?: number;
+  src: ImageMetadata;
+  name: string;
+  width?: number;
+}
+
+const { src, name, width, height } = Astro.props;
+---
+
+<Image
+  alt={name}
+  class="image"
+  height={height || 128}
+  src={src}
+  style="border-radius: 50%;"
+  width={width || 128}
+/>

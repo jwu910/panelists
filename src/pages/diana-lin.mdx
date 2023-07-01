@@ -1,0 +1,41 @@
+---
+layout: "../layouts/Layout.astro"
+title: "Diana Lin"
+---
+
+import dianaProfile from "../assets/DianaProfile.jpg";
+import JobHistory from "../components/JobHistory";
+import Profile from "../components/Profile.astro";
+import StyledGradient from "../components/StyledGradient";
+
+# <StyledGradient text={frontmatter.title}/>
+
+<a href="/">
+  <Profile
+    height={200}
+    name={frontmatter.title}
+    src={dianaProfile}
+    width={200}
+  />
+</a>
+
+### Currently works at PayPal as a <StyledGradient text="Staff Software Engineer" />
+
+#### Tech journey
+
+<JobHistory
+  jobHistory={[
+    {
+      company: "NASA Jet Propulsion Laboratory (JPL)",
+      title: "Software Engineer",
+    },
+    {
+      company: "Liferay",
+      title: "Software Engineering Consultant",
+    },
+    {
+      company: "Esri",
+      title: "Software Products",
+    },
+  ]}
+/>

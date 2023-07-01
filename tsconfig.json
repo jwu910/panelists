@@ -4,7 +4,12 @@
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
-      },
+      }
     ],
+    "types": [
+      "@astrojs/image/client"
+    ],
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
