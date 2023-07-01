@@ -2,22 +2,57 @@
 import { Image } from "@astrojs/image/components";
 
 interface Props {
-  height?: number;
   src: ImageMetadata;
   name: string;
-  width?: number;
+  fullPage?: boolean;
   otherProps?: any;
 }
 
-const { src, name, width, height, ...otherProps } = Astro.props;
+const { src, name, fullPage = false, ...otherProps } = Astro.props;
 ---
 
-<Image
-  alt={`${name} Photo`}
-  class="image"
-  height={height || 128}
-  src={src}
-  style="border-radius: 50%;"
-  width={width || 128}
-  {...otherProps}
-/>
+<div class=`profile ${fullPage ? 'full-page' : ''}`>
+  <Image
+    alt={`${name} Photo`}
+    src={src}
+    style="border-radius: 50%;"
+    {...otherProps}
+  />
+</div>
+
+<style>
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 4rem;
+    height: 4rem;
+    margin: auto;
+  }
+
+  .profile.full-page {
+    height: 10rem;
+    width: 10rem;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 428px) {
+    .profile {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .profile {
+      width: 10rem;
+      height: 10rem;
+      margin: 0;
+    }
+  }
+</style>

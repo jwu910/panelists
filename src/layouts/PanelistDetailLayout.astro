@@ -24,10 +24,20 @@ const {
 
 <Layout title={name}>
   <h1><StyledGradient text={name} /></h1>
-  <Profile height={200} width={200} src={profileImage} name={name} />
+  <div class="profile-detail">
+    <Profile fullPage src={profileImage} name={name} />
+  </div>
   <JobHistory
     currentEmployer={currentEmployer}
     currentTitle={currentTitle}
     jobHistory={jobHistory}
   />
 </Layout>
+
+<style>
+  .profile-detail {
+    display: flex;
+    margin: 0;
+    margin-right: auto;
+  }
+</style>
