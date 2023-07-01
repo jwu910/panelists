@@ -6,9 +6,10 @@ interface Props {
   src: ImageMetadata;
   name: string;
   width?: number;
+  otherProps?: any;
 }
 
-const { src, name, width, height } = Astro.props;
+const { src, name, width, height, ...otherProps } = Astro.props;
 ---
 
 <Image
@@ -18,4 +19,5 @@ const { src, name, width, height } = Astro.props;
   src={src}
   style="border-radius: 50%;"
   width={width || 128}
+  {...otherProps}
 />

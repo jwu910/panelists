@@ -1,0 +1,25 @@
+---
+import PanelistDetailLayout from "../layouts/PanelistDetailLayout.astro";
+import erickaProfile from "../assets/ErickaProfile.jpg";
+
+const name = "Ericka Koyama";
+const currentTitle = "Staff Software Engineer";
+const currentEmployer = "PayPal";
+const jobHistory = [
+  { company: "Liferay", title: "Frontend Engineer" },
+  { company: "Ayzenberg", title: "Software Engineer" },
+  { company: "City of Pasadena", title: "Web Developer" },
+  {
+    company: "Value WIndows and Doors",
+    title: "Graphic Designer & Web Developer",
+  },
+];
+---
+
+<PanelistDetailLayout
+  currentEmployer={currentEmployer}
+  currentTitle={currentTitle}
+  jobHistory={jobHistory}
+  name={name}
+  profileImage={erickaProfile}
+/>

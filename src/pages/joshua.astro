@@ -1,0 +1,30 @@
+---
+import PanelistDetailLayout from "../layouts/PanelistDetailLayout.astro";
+import joshuaProfile from "../assets/JoshuaProfile.jpg";
+
+const name = "Joshua Wu";
+const currentTitle = "Frontend Engineer";
+const currentEmployer = "Pepperdata";
+const jobHistory = [
+  {
+    company: "Polly",
+    title: "Software Engineer",
+  },
+  {
+    company: "Liferay",
+    title: "Frontend Engineer",
+  },
+  {
+    company: "Liferay",
+    title: "Frontend Intern",
+  },
+];
+---
+
+<PanelistDetailLayout
+  currentEmployer={currentEmployer}
+  currentTitle={currentTitle}
+  jobHistory={jobHistory}
+  name={name}
+  profileImage={joshuaProfile}
+/>

@@ -13,7 +13,7 @@ import joshuaImage from "../assets/JoshuaProfile.jpg";
       company="Square"
       name="Diana Lin"
       pronouns="(she/her/hers)"
-      routeKey="diana-lin"
+      routeKey="diana"
       src={dianaImage}
       title="Software Engineer"
     />
@@ -21,7 +21,7 @@ import joshuaImage from "../assets/JoshuaProfile.jpg";
       company="PayPal"
       name="Ericka Koyama"
       pronouns="(she/her/hers)"
-      routeKey="ericka-koyama"
+      routeKey="ericka"
       src={erickaImage}
       title="Software Engineer"
     />
@@ -29,7 +29,7 @@ import joshuaImage from "../assets/JoshuaProfile.jpg";
       company="Pepperdata"
       name="Joshua Wu"
       pronouns="(he/him/his)"
-      routeKey="joshua-wu"
+      routeKey="joshua"
       src={joshuaImage}
       title="Frontend Engineer"
     />
@@ -44,10 +44,16 @@ import joshuaImage from "../assets/JoshuaProfile.jpg";
   }
 
   .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
   }
 
+  @media screen and (min-width: 768px) {
+    .link-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(24ch, 1fr));
+      gap: 1rem;
+      padding: 0;
+    }
+  }
 </style>

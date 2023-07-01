@@ -1,0 +1,30 @@
+---
+import PanelistDetailLayout from "../layouts/PanelistDetailLayout.astro";
+import dianaProfile from "../assets/DianaProfile.jpg";
+
+const name = "Diana Lin";
+const currentTitle = "Software Engineer";
+const currentEmployer = "Square";
+const jobHistory = [
+  {
+    company: "NASA Jet Propulsion Laboratory (JPL)",
+    title: "Software Engineer",
+  },
+  {
+    company: "Liferay",
+    title: "Software Engineering Consultant",
+  },
+  {
+    company: "Esri",
+    title: "Software Products Intern",
+  },
+];
+---
+
+<PanelistDetailLayout
+  currentEmployer={currentEmployer}
+  currentTitle={currentTitle}
+  jobHistory={jobHistory}
+  name={name}
+  profileImage={dianaProfile}
+/>

@@ -1,0 +1,33 @@
+---
+import type { AstroBuiltinProps } from "astro";
+import Layout from "./Layout.astro";
+import JobHistory from "../components/JobHistory";
+import Profile from "../components/Profile.astro";
+import StyledGradient from "../components/StyledGradient";
+
+interface Props extends AstroBuiltinProps {
+  name: string;
+  currentTitle: string;
+  currentEmployer: string;
+  jobHistory: { title: string; company: string }[];
+  profileImage: ImageMetadata;
+}
+
+const {
+  name,
+  jobHistory = [],
+  profileImage,
+  currentTitle,
+  currentEmployer,
+} = Astro.props;
+---
+
+<Layout title={name}>
+  <h1><StyledGradient text={name} /></h1>
+  <Profile height={200} width={200} src={profileImage} name={name} />
+  <JobHistory
+    currentEmployer={currentEmployer}
+    currentTitle={currentTitle}
+    jobHistory={jobHistory}
+  />
+</Layout>
