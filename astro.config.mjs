@@ -3,7 +3,7 @@ import mdx from "@astrojs/mdx";
 import image from "@astrojs/image";
 import react from "@astrojs/react";
 
-import vercel from "@astrojs/vercel/serverless";
+import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,5 +12,5 @@ export default defineConfig({
     inlineStylesheets: "auto"
   },
   output: "server",
-  adapter: vercel()
+  adapter: netlify()
 });
