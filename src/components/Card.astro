@@ -2,18 +2,19 @@
 import Profile from "./Profile.astro";
 export interface Props {
   company: string;
-  src: ImageMetadata;
+  date: string;
   name: string;
   pronouns: string;
   routeKey: string;
+  src: ImageMetadata;
   title: string;
 }
 
-const { name, title, routeKey, pronouns, company, src } = Astro.props;
+const { name, title, routeKey, pronouns, company, src, date } = Astro.props;
 ---
 
 <li class="link-card">
-  <a href={`/${routeKey}`}>
+  <a href={`/${date}/${routeKey}`}>
     <div class="profile">
       <Profile src={src} name={name} />
     </div>

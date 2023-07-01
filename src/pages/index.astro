@@ -4,17 +4,14 @@ import Card from "../components/Card.astro";
 import dianaImage from "../assets/diana.jpg";
 import erickaImage from "../assets/ericka.jpg";
 import joshuaImage from "../assets/joshua.jpg";
-
-const speakers = await Astro.glob("../pages/2023-07-07/*.astro");
 ---
 
 <Layout title="Panelists">
   <h1><span class="text-gradient">Panelists</span></h1>
   <ul role="list" class="link-card-grid">
-
-
     <Card
       company="Square"
+      date="2023-07-07"
       name="Diana Lin"
       pronouns="(she/her/hers)"
       routeKey="diana"
@@ -23,6 +20,7 @@ const speakers = await Astro.glob("../pages/2023-07-07/*.astro");
     />
     <Card
       company="PayPal"
+      date="2023-07-07"
       name="Ericka Koyama"
       pronouns="(she/her/hers)"
       routeKey="ericka"
@@ -31,6 +29,7 @@ const speakers = await Astro.glob("../pages/2023-07-07/*.astro");
     />
     <Card
       company="Pepperdata"
+      date="2023-07-07"
       name="Joshua Wu"
       pronouns="(he/him/his)"
       routeKey="joshua"
