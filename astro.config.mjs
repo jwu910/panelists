@@ -7,10 +7,18 @@ import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), image(), react()],
+  integrations: [
+    mdx(),
+    image({
+      logLevel: "debug",
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+    ,
+    react(),
+  ],
   build: {
-    inlineStylesheets: "auto"
+    inlineStylesheets: "auto",
   },
   output: "server",
-  adapter: netlify()
+  adapter: netlify(),
 });
