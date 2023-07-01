@@ -14,7 +14,7 @@ const { name, title, routeKey, pronouns, company, src } = Astro.props;
 
 <li class="link-card">
   <a href={`/${routeKey}`}>
-    <Profile src={src} name="Diana Lin" />
+    <Profile src={src} name={name} />
     <h2>{name}</h2>
     <div>
       <p>{pronouns}</p>
