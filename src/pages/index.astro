@@ -1,14 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-import dianaImage from "../assets/DianaProfile.jpg";
-import erickaImage from "../assets/ErickaProfile.jpg";
-import joshuaImage from "../assets/JoshuaProfile.jpg";
+import dianaImage from "../assets/diana.jpg";
+import erickaImage from "../assets/ericka.jpg";
+import joshuaImage from "../assets/joshua.jpg";
+
+const speakers = await Astro.glob("../pages/2023-07-07/*.astro");
 ---
 
 <Layout title="Panelists">
   <h1><span class="text-gradient">Panelists</span></h1>
   <ul role="list" class="link-card-grid">
+
+
     <Card
       company="Square"
       name="Diana Lin"

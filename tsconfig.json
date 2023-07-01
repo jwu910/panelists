@@ -6,10 +6,15 @@
         "name": "@astrojs/ts-plugin"
       }
     ],
-    "types": [
-      "@astrojs/image/client"
-    ],
+    "baseUrl": ".",
+    "types": ["@astrojs/image/client"],
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@pages/*": ["src/pages/*"]
+    }
   }
 }

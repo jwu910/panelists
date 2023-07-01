@@ -3,7 +3,7 @@ interface Props {
 }
 
 const StyledGradient = (props: Props) => {
-  return <span class="text-gradient">{props.text}</span>;
+  return <span className="text-gradient">{props.text}</span>;
 };
 
 export default StyledGradient;
