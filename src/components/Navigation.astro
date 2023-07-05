@@ -1,11 +1,23 @@
 ---
+import type { AstroInstance } from 'astro';
 import StyledGradient from './StyledGradient';
+
+const speakers = await Astro.glob('../pages/2023-07-07/*.astro');
 ---
 
 <div class="header">
-  <a href="/">
-    <StyledGradient text="Home" />
+  <a class="nav-link header-home" href="/">
+    <StyledGradient text="///" />
   </a>
+  {
+    speakers.map((speaker: AstroInstance) => {
+      return (
+        <a class="nav-link" href={speaker.url}>
+          <StyledGradient text={speaker.default.name} />
+        </a>
+      );
+    })
+  }
 </div>
 
 <style>
@@ -19,10 +31,15 @@ import StyledGradient from './StyledGradient';
     font-weight: 600;
     text-decoration: none;
     transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    padding: 0.5rem;
   }
 
   .header > a:hover {
     text-decoration: underline;
+  }
+
+  .header-home {
+    letter-spacing: 0.2rem;
   }
 
   @media screen and (min-width: 428px) {
@@ -31,6 +48,8 @@ import StyledGradient from './StyledGradient';
       left: 0;
       top: 0;
       width: 200px;
+      display: flex;
+      flex-direction: column;
     }
   }
 </style>
