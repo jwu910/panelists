@@ -1,5 +1,5 @@
 ---
-import StyledGradient from "./StyledGradient";
+import StyledGradient from './StyledGradient';
 ---
 
 <div class="header">
@@ -10,10 +10,9 @@ import StyledGradient from "./StyledGradient";
 
 <style>
   .header {
+    background-color: rgba(0, 0, 0, 0.05);
     font-size: 1.5rem;
-    margin: 1rem;
     padding: 0.5rem;
-    width: 100%;
   }
 
   .header > a {
@@ -24,5 +23,14 @@ import StyledGradient from "./StyledGradient";
 
   .header > a:hover {
     text-decoration: underline;
+  }
+
+  @media screen and (min-width: 428px) {
+    .header {
+      bottom: 0;
+      left: 0;
+      top: 0;
+      width: 200px;
+    }
   }
 </style>

@@ -1,16 +1,16 @@
 import StyledGradient from './StyledGradient';
 
-export type EducationDegree = {
+export type Education = {
   school: string;
   focus: string;
   year: string;
 };
 
 interface Props {
-  educationHistory: EducationDegree[];
+  educationHistory: Education[];
 }
 
-const Education = (props: Props) => {
+const EducationHistory = (props: Props) => {
   return (
     <>
       <h2>Education history</h2>
@@ -30,4 +30,4 @@ const Education = (props: Props) => {
   );
 };
 
-export default Education;
+export default EducationHistory;
