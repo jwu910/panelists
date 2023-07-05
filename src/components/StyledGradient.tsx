@@ -1,9 +1,10 @@
 interface Props {
-  text: string;
+  children?: React.ReactNode;
+  text?: string;
 }
 
 const StyledGradient = (props: Props) => {
-  return <span className="text-gradient">{props.text}</span>;
+  return <span className="text-gradient">{props.text || props.children}</span>;
 };
 
 export default StyledGradient;

@@ -4,6 +4,7 @@ import Layout from "./Layout.astro";
 import JobHistory from "@components/JobHistory";
 import Profile from "@components/Profile.astro";
 import StyledGradient from "@components/StyledGradient";
+import Education, { type EducationDegree } from "@components/Education";
 
 interface Props extends AstroBuiltinProps {
   name: string;
@@ -11,11 +12,13 @@ interface Props extends AstroBuiltinProps {
   currentEmployer: string;
   jobHistory: { title: string; company: string }[];
   profileImage: ImageMetadata;
+  educationHistory: EducationDegree[];
 }
 
 const {
   name,
   jobHistory = [],
+  educationHistory = [],
   profileImage,
   currentTitle,
   currentEmployer,
@@ -32,6 +35,7 @@ const {
     currentTitle={currentTitle}
     jobHistory={jobHistory}
   />
+  <Education educationHistory={educationHistory} />
 </Layout>
 
 <style>
