@@ -1,27 +1,30 @@
 ---
-import type { AstroBuiltinProps } from 'astro';
-import Layout from './Layout.astro';
-import JobHistory from '@components/JobHistory';
-import Profile from '@components/Profile.astro';
-import StyledGradient from '@components/StyledGradient';
-import EducationHistory, { type Education } from '@components/EducationHistory';
+import type { AstroBuiltinProps } from "astro";
+import Layout from "./Layout.astro";
+import JobHistory from "@components/JobHistory";
+import Profile from "@components/Profile.astro";
+import StyledGradient from "@components/StyledGradient";
+import EducationHistory, { type Education } from "@components/EducationHistory";
+import IconLink from "@components/IconLink";
 
 interface Props extends AstroBuiltinProps {
-  name: string;
-  currentTitle: string;
   currentEmployer: string;
-  jobHistory: { title: string; company: string }[];
-  profileImage: ImageMetadata;
+  currentTitle: string;
   educationHistory: Education[];
+  jobHistory: { title: string; company: string }[];
+  linkedinHref?: string;
+  name: string;
+  profileImage: ImageMetadata;
 }
 
 const {
-  name,
-  jobHistory = [],
-  educationHistory = [],
-  profileImage,
-  currentTitle,
   currentEmployer,
+  currentTitle,
+  educationHistory = [],
+  jobHistory = [],
+  linkedinHref = "",
+  name,
+  profileImage,
 } = Astro.props;
 ---
 
@@ -36,6 +39,14 @@ const {
     jobHistory={jobHistory}
   />
   <EducationHistory educationHistory={educationHistory} />
+  {
+    linkedinHref && (
+      <>
+        <h2>Connect</h2>
+        <IconLink href={linkedinHref} />
+      </>
+    )
+  }
 </Layout>
 
 <style>

@@ -1,4 +1,4 @@
-import StyledGradient from './StyledGradient';
+import StyledGradient from "./StyledGradient";
 
 export type Education = {
   school: string;
@@ -19,8 +19,8 @@ const EducationHistory = (props: Props) => {
           props.educationHistory.map((education) => (
             <li>
               <p>
-                {education.year} -{' '}
-                <StyledGradient>{education.school}</StyledGradient> -{' '}
+                {education.year} -{" "}
+                <StyledGradient>{education.school}</StyledGradient> -{" "}
                 {education.focus}
               </p>
             </li>
