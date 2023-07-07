@@ -17,7 +17,7 @@ const EducationHistory = (props: Props) => {
       <ul>
         {props.educationHistory &&
           props.educationHistory.map((education) => (
-            <li>
+            <li key={`${education.school}-${education.year}`}>
               <p>
                 {education.year} -{" "}
                 <StyledGradient>{education.school}</StyledGradient> -{" "}

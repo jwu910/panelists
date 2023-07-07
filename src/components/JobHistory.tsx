@@ -22,7 +22,7 @@ const JobHistory = (props: Props) => {
       <h2>Tech journey</h2>
       <ul>
         {props.jobHistory.map((jobHistory) => (
-          <li>
+          <li key={`${jobHistory.title}-${jobHistory.company}`}>
             <TitleAndCompany
               title={jobHistory.title}
               company={jobHistory.company}

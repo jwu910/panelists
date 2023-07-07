@@ -62,7 +62,6 @@ const { title } = Astro.props;
 
   main {
     padding: 0 1rem;
-    max-width: 50ch;
     margin-left: auto;
     margin-right: auto;
   }
@@ -103,21 +102,19 @@ const { title } = Astro.props;
     color: rgb(var(--accent));
   }
 
-  @media screen and (min-width: 428px) {
+  @media screen and (min-width: 480px) {
     body {
       flex-direction: row;
     }
 
     main {
       padding: 0 1.5rem;
-      max-width: 50ch;
     }
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 968px) {
     main {
       padding: 0 2rem;
-      max-width: 70ch;
     }
   }
 </style>
