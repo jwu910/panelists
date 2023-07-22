@@ -1,20 +1,36 @@
 {
-  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "paths": {
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@speakers/*": [
+        "src/speakers/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
+    },
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
       }
-    ],
-    "baseUrl": ".",
-    "types": ["@astrojs/image/client"],
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@pages/*": ["src/pages/*"]
-    }
-  }
+    ]
+  },
+  "extends": "astro/tsconfigs/strict",
+  "types": [
+    "@astrojs/image/client"
+  ]
 }

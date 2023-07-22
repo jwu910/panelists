@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/bower",
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": {
+        "parser": "astro"
+      }
+    }
+  ],
+  "plugins": [
+    "prettier-plugin-astro"
+  ],
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "teslkhfe": "alskdh",
+  "useTabs": false
+}
