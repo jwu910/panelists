@@ -1,0 +1,55 @@
+---
+import profileImage from "@assets/ericka.jpg";
+import PanelistDetailLayout from "@layouts/PanelistDetailLayout.astro";
+
+export const details = {
+  name: "Ericka Koyama",
+  pronouns: "she/her/hers",
+  currentTitle: "Staff Software Engineer",
+  currentEmployer: "PayPal",
+  jobHistory: [
+    { company: "Liferay", title: "Frontend Engineer" },
+    { company: "Ayzenberg", title: "Software Engineer" },
+    { company: "City of Pasadena", title: "Web Developer" },
+    {
+      company: "Value Windows and Doors",
+      title: "Graphic Designer & Web Developer",
+    },
+  ],
+  educationHistory: [
+    {
+      school: "California State University, Monterey Bay",
+      focus: "B.S. - Computer Science",
+      year: "2021",
+    },
+    {
+      school: "Glendale Community College",
+      focus: "Computer Science",
+      year: "2019",
+    },
+    {
+      school: "Citrus College",
+      focus: "Computer Science",
+      year: "2018",
+    },
+    {
+      school: "University of California, Santa Barbara",
+      focus: "B.A. - Classical Archaeology",
+      year: "2009",
+    },
+  ],
+  profileImage: profileImage,
+  linkedinHref: "https://www.linkedin.com/in/erickakoyama/",
+};
+export const events = ["2023-07-07"];
+---
+
+<PanelistDetailLayout
+  currentEmployer={details.currentEmployer}
+  currentTitle={details.currentTitle}
+  educationHistory={details.educationHistory}
+  jobHistory={details.jobHistory}
+  linkedinHref={details.linkedinHref}
+  name={details.name}
+  profileImage={profileImage}
+/>

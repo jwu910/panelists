@@ -1,0 +1,44 @@
+---
+import StyledGradient from "@components/StyledGradient";
+import BaseLayout from "./BaseLayout.astro";
+import Card from "@components/Card.astro";
+import type { ISpeaker } from "@utils/interfaces";
+
+const { eventDate, eventName } = Astro.props;
+
+const { speakers } = Astro.props;
+---
+
+<BaseLayout title={eventName}>
+  <h1><StyledGradient text={eventName} /></h1>
+  <h2>{eventDate}</h2>
+  <ul role="list" class="link-card-grid">
+    {
+      speakers.map((speaker: ISpeaker) => (
+        <Card
+          currentEmployer={speaker.details.currentEmployer}
+          url={speaker.url}
+          name={speaker.details.name}
+          pronouns={speaker.details.pronouns}
+          profileImage={speaker.details.profileImage}
+          currentTitle={speaker.details.currentTitle}
+        />
+      ))
+    }
+  </ul>
+</BaseLayout>
+
+<style>
+  .link-card-grid {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+  @media screen and (min-width: 768px) {
+    .link-card-grid {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+    }
+  }
+</style>

@@ -1,11 +1,11 @@
 ---
-import type { AstroBuiltinProps } from "astro";
-import Layout from "./Layout.astro";
+import EducationHistory, { type Education } from "@components/EducationHistory";
+import IconLink from "@components/IconLink";
 import JobHistory from "@components/JobHistory";
 import Profile from "@components/Profile.astro";
 import StyledGradient from "@components/StyledGradient";
-import EducationHistory, { type Education } from "@components/EducationHistory";
-import IconLink from "@components/IconLink";
+import type { AstroBuiltinProps } from "astro";
+import BaseLayout from "./BaseLayout.astro";
 
 interface Props extends AstroBuiltinProps {
   currentEmployer: string;
@@ -28,7 +28,7 @@ const {
 } = Astro.props;
 ---
 
-<Layout title={name}>
+<BaseLayout title={name}>
   <h1><StyledGradient text={name} /></h1>
   <div class="profile-detail">
     <Profile fullPage src={profileImage} name={name} />
@@ -47,7 +47,7 @@ const {
       </>
     )
   }
-</Layout>
+</BaseLayout>
 
 <style>
   .profile-detail {
