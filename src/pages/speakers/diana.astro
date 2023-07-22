@@ -1,0 +1,50 @@
+---
+import PanelistDetailLayout from "@layouts/PanelistDetailLayout.astro";
+import profileImage from "@assets/diana.jpg";
+
+export const events = ["2023-07-07", "2023-08-08"];
+export const details = {
+  name: "Diana Lin",
+  pronouns: "she/her/hers",
+  currentTitle: "Software Engineer",
+  currentEmployer: "Square",
+  jobHistory: [
+    {
+      company: "NASA Jet Propulsion Laboratory (JPL)",
+      title: "Software Engineer",
+    },
+    {
+      company: "Liferay",
+      title: "Software Engineering Consultant",
+    },
+    {
+      company: "Esri",
+      title: "Software Products Intern",
+    },
+  ],
+  educationHistory: [
+    {
+      school: "California State Polytechnic University, Pomona",
+      focus: "M.S. - Computer Science",
+      year: "2018",
+    },
+    {
+      school: "University of California, Los Angeles",
+      focus: "B.S. - Computer Science",
+      year: "2015",
+    },
+  ],
+  linkedinHref: "https://www.linkedin.com/in/diana-e-lin/",
+  profileImage: profileImage,
+};
+---
+
+<PanelistDetailLayout
+  currentEmployer={details.currentEmployer}
+  currentTitle={details.currentTitle}
+  educationHistory={details.educationHistory}
+  jobHistory={details.jobHistory}
+  linkedinHref={details.linkedinHref}
+  name={details.name}
+  profileImage={profileImage}
+/>

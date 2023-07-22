@@ -1,28 +1,28 @@
 ---
 import Profile from "./Profile.astro";
 export interface Props {
-  company: string;
-  date: string;
+  currentEmployer: string;
   name: string;
   pronouns: string;
-  routeKey: string;
-  src: ImageMetadata;
-  title: string;
+  profileImage: ImageMetadata;
+  currentTitle: string;
+  url?: string;
 }
 
-const { name, title, routeKey, pronouns, company, src, date } = Astro.props;
+const { name, currentTitle, url, pronouns, currentEmployer, profileImage } =
+  Astro.props;
 ---
 
 <li class="link-card">
-  <a href={`/${date}/${routeKey}`}>
+  <a href={url}>
     <div class="profile-section">
-      <Profile src={src} name={name} />
+      <Profile src={profileImage} name={name} />
     </div>
     <div class="details">
       <h2>{name}</h2>
       <div>
         <p>{pronouns}</p>
-        <p><strong>{title}</strong> at {company}</p>
+        <p><strong>{currentTitle}</strong> at {currentEmployer}</p>
       </div>
     </div>
   </a>
@@ -33,7 +33,8 @@ const { name, title, routeKey, pronouns, company, src, date } = Astro.props;
     background-image: none;
     background-position: 100%;
     background-size: 400%;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -2px rgba(0, 0, 0, 0.1);
     border-radius: 0.6rem;
     display: flex;

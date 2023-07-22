@@ -1,0 +1,45 @@
+---
+import profileImage from "@assets/joshua.jpg";
+import PanelistDetailLayout from "@layouts/PanelistDetailLayout.astro";
+
+export const details = {
+  name: "Joshua Wu",
+  pronouns: "he/him/his",
+  currentTitle: "Frontend Engineer",
+  currentEmployer: "Pepperdata",
+  jobHistory: [
+    {
+      company: "Polly",
+      title: "Software Engineer",
+    },
+    {
+      company: "Liferay",
+      title: "Frontend Engineer",
+    },
+    {
+      company: "Liferay",
+      title: "Frontend Intern",
+    },
+  ],
+  educationHistory: [
+    {
+      school: "California State Polytechnic University, Pomona",
+      focus: "B.A. - Business Admin. - Management and Human Resources",
+      year: "2013",
+    },
+  ],
+  profileImage: profileImage,
+  linkedinHref: "https://www.linkedin.com/in/wujoshua/",
+};
+export const events = ["2023-07-07", "2023-08-08"];
+---
+
+<PanelistDetailLayout
+  currentEmployer={details.currentEmployer}
+  currentTitle={details.currentTitle}
+  educationHistory={details.educationHistory}
+  jobHistory={details.jobHistory}
+  linkedinHref={details.linkedinHref}
+  name={details.name}
+  profileImage={profileImage}
+/>

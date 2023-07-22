@@ -1,42 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import dianaImage from "../assets/diana.jpg";
-import erickaImage from "../assets/ericka.jpg";
-import joshuaImage from "../assets/joshua.jpg";
+import Layout from "@layouts/BaseLayout.astro";
 ---
 
 <Layout title="Panelists">
   <h1><span class="text-gradient">Panelists</span></h1>
-  <ul role="list" class="link-card-grid">
-    <Card
-      company="Square"
-      date="2023-07-07"
-      name="Diana Lin"
-      pronouns="(she/her/hers)"
-      routeKey="diana"
-      src={dianaImage}
-      title="Software Engineer"
-    />
-    <Card
-      company="PayPal"
-      date="2023-07-07"
-      name="Ericka Koyama"
-      pronouns="(she/her/hers)"
-      routeKey="ericka"
-      src={erickaImage}
-      title="Staff Software Engineer"
-    />
-    <Card
-      company="Pepperdata"
-      date="2023-07-07"
-      name="Joshua Wu"
-      pronouns="(he/him/his)"
-      routeKey="joshua"
-      src={joshuaImage}
-      title="Frontend Engineer"
-    />
-  </ul>
 </Layout>
 
 <style>

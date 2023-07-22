@@ -1,0 +1,47 @@
+---
+import PanelistDetailLayout from "@layouts/PanelistDetailLayout.astro";
+import profileImage from "@assets/virginia.jpg";
+
+export const events = ["2023-08-08"];
+export const details = {
+  name: "Virginia Chiu",
+  pronouns: "she/her/hers",
+  currentTitle: "Staff Software Engineer",
+  currentEmployer: "Okta, Inc",
+  jobHistory: [
+    {
+      company: "Azuqua",
+      title: "Senior Software Engineer",
+    },
+    {
+      company: "Socedo",
+      title: "Software Engineer",
+    },
+  ],
+  educationHistory: [
+    {
+      school: "Massachusetts Institute of Technology",
+      focus: "Master of Engineering - MEng, Computer Science",
+      year: "2016",
+    },
+    {
+      school: "Massachusetts Institute of Technology",
+      focus:
+        "Bachelor of Science - BS, Computer Science and Engineering, Mathematics",
+      year: "2016",
+    },
+  ],
+  linkedinHref: "",
+  profileImage: profileImage,
+};
+---
+
+<PanelistDetailLayout
+  currentEmployer={details.currentEmployer}
+  currentTitle={details.currentTitle}
+  educationHistory={details.educationHistory}
+  jobHistory={details.jobHistory}
+  linkedinHref={details.linkedinHref}
+  name={details.name}
+  profileImage={profileImage}
+/>

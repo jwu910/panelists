@@ -1,8 +1,8 @@
 ---
-import type { AstroInstance } from 'astro';
-import StyledGradient from './StyledGradient';
+import StyledGradient from "./StyledGradient";
 
-const speakers = await Astro.glob('../pages/2023-07-07/*.astro');
+// const speakers = await Astro.glob("../pages/speakers/*.astro");
+const events = (await Astro.glob("../pages/events/*.astro")) as IEvent[];
 ---
 
 <div class="header">
@@ -10,10 +10,10 @@ const speakers = await Astro.glob('../pages/2023-07-07/*.astro');
     <StyledGradient text="///" />
   </a>
   {
-    speakers.map((speaker: AstroInstance) => {
+    events.map((event) => {
       return (
-        <a class="nav-link" href={speaker.url}>
-          <StyledGradient text={speaker.default.name} />
+        <a class="nav-link" href={event.url}>
+          <StyledGradient text={event.eventName} />
         </a>
       );
     })
@@ -47,7 +47,7 @@ const speakers = await Astro.glob('../pages/2023-07-07/*.astro');
       bottom: 0;
       left: 0;
       top: 0;
-      width: 200px;
+      width: 300px;
       display: flex;
       flex-direction: column;
     }
