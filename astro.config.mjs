@@ -1,8 +1,8 @@
-import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
 import image from "@astrojs/image";
-import react from "@astrojs/react";
+import mdx from "@astrojs/mdx";
 import netlify from "@astrojs/netlify/functions";
+import react from "@astrojs/react";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,4 +19,5 @@ export default defineConfig({
   },
   output: "server",
   adapter: netlify(),
+  root: ".",
 });
