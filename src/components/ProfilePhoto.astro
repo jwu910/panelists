@@ -41,15 +41,23 @@ const { src, name, fullPage = false, ...otherProps } = Astro.props;
     &:not(.full-page):hover img {
       transition: all 0.3s ease-in-out;
       transform: scale(1.01);
-    box-shadow: 0 0 0.5rem 0.25rem var(--color-shadow-hover);
+      box-shadow: 0 0 0.5rem 0.25rem var(--color-shadow-hover);
       opacity: 0.8;
     }
   }
 
   .profile-photo.full-page {
-    max-height: 10rem;
-    max-width: 10rem;
-    margin: 0;
+    height: 200px;
+    margin: auto;
+    width: 200px;
+    max-height: unset;
+    max-width: unset;
+
+    @media screen and (min-width: 480px) {
+      max-height: 10rem;
+      max-width: 10rem;
+      margin: 0;
+    }
   }
 
   @media screen and (min-width: 480px) {

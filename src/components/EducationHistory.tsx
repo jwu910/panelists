@@ -13,7 +13,7 @@ interface Props {
 const EducationHistory = (props: Props) => {
   return (
     <>
-      <h2>Education history</h2>
+      <h2>Education</h2>
       <ul>
         {props.educationHistory &&
           props.educationHistory.map((education) => (

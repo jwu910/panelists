@@ -16,10 +16,10 @@ const JobHistory = (props: Props) => {
   return (
     <>
       <h2>
-        Currently working as a <StyledGradient text={props.currentTitle} /> at{" "}
+        <StyledGradient text={props.currentTitle} /> at{" "}
         <StyledGradient text={props.currentEmployer} />
       </h2>
-      <h2>Tech journey</h2>
+      <h2>Tech Journey</h2>
       <ul>
         {props.jobHistory.map((jobHistory) => (
           <li key={`${jobHistory.title}-${jobHistory.company}`}>
