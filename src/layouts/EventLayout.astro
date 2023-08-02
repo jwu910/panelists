@@ -3,6 +3,7 @@ import StyledGradient from "@components/StyledGradient";
 import BaseLayout from "./BaseLayout.astro";
 import Card from "@components/Card.astro";
 import type { ISpeaker } from "@utils/interfaces";
+import SpeakerBio from "@components/SpeakerBio.astro";
 
 const { eventDate, eventName } = Astro.props;
 
@@ -12,8 +13,10 @@ const { speakers } = Astro.props;
 <BaseLayout title={eventName}>
   <h1><StyledGradient text={eventName} /></h1>
   <h2>{eventDate}</h2>
-  <ul role="list" class="link-card-grid">
-    {
+  <ul role="list" class="speakers-container link-card-grid">
+    <!-- {
+      // Replace cards with just speakers and blurbs? details can remain in detail page
+      // Card should become SpeakerBio component
       speakers.map((speaker: ISpeaker) => (
         <Card
           currentEmployer={speaker.details.currentEmployer}
@@ -24,21 +27,81 @@ const { speakers } = Astro.props;
           currentTitle={speaker.details.currentTitle}
         />
       ))
+    } -->
+    {
+      speakers.map((speaker: ISpeaker) => {
+        return <SpeakerBio speaker={speaker} />;
+      })
     }
   </ul>
-</BaseLayout>
 
-<style>
-  .link-card-grid {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-  }
-  @media screen and (min-width: 768px) {
-    .link-card-grid {
+  <style lang="scss">
+    body {
+      background: linear-gradient(
+        35deg,
+        rgb(var(--accent)),
+        #965ed1 5%,
+        white 40%
+      );
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0;
+    }
+
+    @media screen and (min-width: 480px) {
+      h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      h1 {
+        font-size: 4rem;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: 480px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    .speakers-container {
       display: flex;
       flex-direction: row;
       padding: 0;
+
+      @media screen and (min-width: 768px) {
+        flex-wrap: wrap;
+      }
     }
-  }
-</style>
+
+    .link-card-grid {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .link-card-grid > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    .link-card-grid > * {
+      margin: 1rem 0;
+    }
+
+    @media screen and (min-width: 480px) {
+      .link-card-grid {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+      }
+    }
+  </style>
+</BaseLayout>

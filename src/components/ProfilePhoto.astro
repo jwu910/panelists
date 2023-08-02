@@ -1,0 +1,71 @@
+---
+import { Image } from "@astrojs/image/components";
+
+interface Props {
+  src: ImageMetadata;
+  name: string;
+  fullPage?: boolean;
+  otherProps?: any;
+}
+
+const { src, name, fullPage = false, ...otherProps } = Astro.props;
+---
+
+<div class=`profile-photo ${fullPage ? 'full-page' : ''}`>
+  <Image
+    alt={`${name} Photo`}
+    src={src}
+    style="border-radius: 12px;"
+    {...otherProps}
+  />
+</div>
+
+<style lang="scss">
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .profile-photo {
+    // transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    width: 6rem;
+    max-width: 6rem;
+    max-height: 6rem;
+    margin: auto;
+
+    &:not(.full-page):hover img {
+      transition: all 0.3s ease-in-out;
+      transform: scale(1.01);
+    box-shadow: 0 0 0.5rem 0.25rem var(--color-shadow-hover);
+      opacity: 0.8;
+    }
+  }
+
+  .profile-photo.full-page {
+    max-height: 10rem;
+    max-width: 10rem;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 480px) {
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      max-width: 8rem;
+      max-height: 8rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .profile-photo {
+      max-width: 15rem;
+      max-height: 15rem;
+      margin: 0;
+    }
+  }
+</style>

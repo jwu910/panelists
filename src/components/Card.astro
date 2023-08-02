@@ -1,5 +1,5 @@
 ---
-import Profile from "./Profile.astro";
+import ProfilePhoto from "./ProfilePhoto.astro";
 export interface Props {
   currentEmployer: string;
   name: string;
@@ -16,7 +16,7 @@ const { name, currentTitle, url, pronouns, currentEmployer, profileImage } =
 <li class="link-card">
   <a href={url}>
     <div class="profile-section">
-      <Profile src={profileImage} name={name} />
+      <ProfilePhoto src={profileImage} name={name} />
     </div>
     <div class="details">
       <h2>{name}</h2>

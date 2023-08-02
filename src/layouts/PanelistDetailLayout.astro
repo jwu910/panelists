@@ -2,7 +2,7 @@
 import EducationHistory, { type Education } from "@components/EducationHistory";
 import IconLink from "@components/IconLink";
 import JobHistory from "@components/JobHistory";
-import Profile from "@components/Profile.astro";
+import ProfilePhoto from "@components/ProfilePhoto.astro";
 import StyledGradient from "@components/StyledGradient";
 import type { AstroBuiltinProps } from "astro";
 import BaseLayout from "./BaseLayout.astro";
@@ -31,7 +31,7 @@ const {
 <BaseLayout title={name}>
   <h1><StyledGradient text={name} /></h1>
   <div class="profile-detail">
-    <Profile fullPage src={profileImage} name={name} />
+    <ProfilePhoto fullPage src={profileImage} name={name} />
   </div>
   <JobHistory
     currentEmployer={currentEmployer}
