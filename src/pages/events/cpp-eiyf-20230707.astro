@@ -2,17 +2,21 @@
 import EventLayout from "@layouts/EventLayout.astro";
 import type { ISpeaker } from "@utils/interfaces";
 
-export const eventName = "<EIYF 2023 August/>";
+export const eventNickname = "EIYF 2023 July";
 
 const allSpeakers = (await Astro.glob("../speakers/*.astro")) as ISpeaker[];
 
 const speakers = allSpeakers.filter((speaker) =>
-  speaker.events.includes("2023-08-08"),
+  speaker.events.includes("2023-07-07"),
 );
+
+const { url } = Astro.props;
 ---
 
 <EventLayout
   eventName="Engineering In Your Future"
-  eventDate="August 8th, 2023"
+  eventRoute={url}
+  eventNickname={eventNickname}
+  eventDate="July 7th, 2023"
   speakers={speakers}
 />

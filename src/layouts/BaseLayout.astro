@@ -7,9 +7,11 @@ import "@fontsource/atkinson-hyperlegible/400-italic.css"; // Specify weight and
 
 export interface Props {
   title: string;
+  footerLabel?: string;
+  footerRoute?: string;
 }
 
-const { title } = Astro.props;
+const { title, footerLabel, footerRoute } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -27,6 +29,9 @@ const { title } = Astro.props;
       <slot />
     </main>
   </body>
+  <footer>
+    {footerRoute ? <a href={footerRoute}>{footerLabel}</a> : footerLabel}
+  </footer>
 </html>
 
 <style is:global lang="scss">
@@ -38,6 +43,7 @@ const { title } = Astro.props;
       #da62c4 30%,
       white 60%
     );
+    --gradient-bg-color: #d0b7eb;
     color: #444;
   }
 
@@ -77,6 +83,10 @@ const { title } = Astro.props;
     margin-right: auto;
     max-width: 1200px;
   }
+
+  footer {
+    margin-top: auto;
+  }
   p {
     margin-top: 0.5rem;
     margin-bottom: 0;
@@ -115,10 +125,6 @@ const { title } = Astro.props;
   }
 
   @media screen and (min-width: 480px) {
-    body {
-      flex-direction: row;
-    }
-
     main {
       padding: 0 1.5rem;
     }

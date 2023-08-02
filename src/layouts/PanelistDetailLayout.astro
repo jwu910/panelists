@@ -11,6 +11,8 @@ interface Props extends AstroBuiltinProps {
   currentEmployer: string;
   currentTitle: string;
   educationHistory: Education[];
+  eventNickname?: string;
+  eventRoute?: string;
   jobHistory: { title: string; company: string }[];
   linkedinHref?: string;
   name: string;
@@ -21,6 +23,8 @@ const {
   currentEmployer,
   currentTitle,
   educationHistory = [],
+  eventNickname,
+  eventRoute,
   jobHistory = [],
   linkedinHref = "",
   name,
@@ -28,8 +32,10 @@ const {
 } = Astro.props;
 ---
 
-<BaseLayout title={name}>
-  <h1><StyledGradient text={name} /></h1>
+<BaseLayout title={name} footerLabel={eventNickname} footerRoute={eventRoute}>
+  <h1>
+    <StyledGradient text={name} />
+  </h1>
   <div class="profile-detail">
     <ProfilePhoto fullPage src={profileImage} name={name} />
   </div>
@@ -51,7 +57,7 @@ const {
 
 <style lang="scss">
   body {
-    background: linear-gradient(235deg, #c09fe3 10%, white 50%);
+    background: linear-gradient(330deg, var(--gradient-bg-color) 10%, white 50%);
 
     @media screen and (min-width: 768px) {
       padding-top: 5%;
