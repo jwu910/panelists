@@ -17,7 +17,7 @@
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/netlify": "^2.3.0",
     "@astrojs/react": "^2.2.1",
-    "@fontsource/opendyslexic": "^5.0.5",
+    "@fontsource/atkinson-hyperlegible": "^5.0.5",
     "astro": "^2.7.2",
     "autoprefixer": "^10.4.14",
     "react": "^18.2.0",

@@ -1,5 +1,9 @@
 ---
-import Navigation from "@components/Navigation.astro";
+// Setup navigation only if needed later
+// import Navigation from "@components/Navigation.astro";
+import "@fontsource/atkinson-hyperlegible"; // Defaults to weight 400
+import "@fontsource/atkinson-hyperlegible/400.css"; // Specify weight
+import "@fontsource/atkinson-hyperlegible/400-italic.css"; // Specify weight and style
 
 export interface Props {
   title: string;
@@ -38,7 +42,7 @@ const { title } = Astro.props;
   }
 
   html {
-    font-family: opendyslexic, system-ui, sans-serif;
+    font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
     background-color: #f6f6f6;
   }
 
