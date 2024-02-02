@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 interface Props {
   src: ImageMetadata;
@@ -13,7 +13,7 @@ const { src, name, fullPage = false, ...otherProps } = Astro.props;
 
 <div class=`profile-photo ${fullPage ? 'full-page' : ''}`>
   <Image
-    alt={`${name} Photo`}
+    alt={`${name}`}
     src={src}
     style="border-radius: 12px;"
     {...otherProps}

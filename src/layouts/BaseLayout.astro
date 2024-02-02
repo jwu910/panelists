@@ -4,6 +4,7 @@
 import "@fontsource/atkinson-hyperlegible"; // Defaults to weight 400
 import "@fontsource/atkinson-hyperlegible/400.css"; // Specify weight
 import "@fontsource/atkinson-hyperlegible/400-italic.css"; // Specify weight and style
+import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -23,118 +24,118 @@ const { title, footerLabel, footerRoute } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <main>
       <slot />
     </main>
+    <footer>
+      <a href="/all">All</a>
+      <span>{" | "}</span>
+      {footerRoute ? <a href={footerRoute}>{footerLabel}</a> : footerLabel}
+    </footer>
+    <style is:global lang="scss">
+      :root {
+        --accent: 124, 58, 237;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          #da62c4 30%,
+          white 60%
+        );
+        --gradient-bg-color: #d0b7eb;
+        color: #444;
+      }
+
+      html {
+        font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
+        background-color: #f6f6f6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+        margin: 0;
+        width: 100vw;
+        min-height: 100vh;
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+
+      main {
+        padding: 0 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 768px;
+      }
+
+      footer {
+        margin-top: auto;
+        padding: 2rem;
+      }
+      p {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin: 0;
+        margin-bottom: 0.5rem;
+      }
+      a {
+        color: inherit;
+      }
+
+      a:active {
+        color: rgb(var(--accent));
+      }
+
+      .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+      }
+
+      .link-card:is(:hover, :focus-within),
+      .header a > div:is(:hover, :focus-within) {
+        background-position: 0;
+        background-image: var(--accent-gradient);
+      }
+      .link-card:is(:hover, :focus-within) h2 {
+        color: rgb(var(--accent));
+      }
+
+      @media screen and (min-width: 480px) {
+        main {
+          padding: 0 1.5rem;
+        }
+      }
+
+      @media screen and (min-width: 968px) {
+        main {
+          padding: 0 2rem;
+        }
+      }
+    </style>
   </body>
-  <footer>
-    <a href="/all">All</a>
-    <span>{" | "}</span>
-    {footerRoute ? <a href={footerRoute}>{footerLabel}</a> : footerLabel}
-  </footer>
 </html>
-
-<style is:global lang="scss">
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-    --gradient-bg-color: #d0b7eb;
-    color: #444;
-  }
-
-  html {
-    font-family: "Atkinson Hyperlegible", system-ui, sans-serif;
-    background-color: #f6f6f6;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    margin: 0;
-    width: 100vw;
-    min-height: 100vh;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-
-  main {
-    padding: 0 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 768px;
-  }
-
-  footer {
-    margin-top: auto;
-    padding: 2rem;
-  }
-  p {
-    margin-top: 0.5rem;
-    margin-bottom: 0;
-  }
-
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
-    margin-bottom: 0.5rem;
-  }
-  a {
-    color: inherit;
-  }
-
-  a:active {
-    color: rgb(var(--accent));
-  }
-
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-
-  .link-card:is(:hover, :focus-within),
-  .header a > div:is(:hover, :focus-within) {
-    background-position: 0;
-    background-image: var(--accent-gradient);
-  }
-  .link-card:is(:hover, :focus-within) h2 {
-    color: rgb(var(--accent));
-  }
-
-  @media screen and (min-width: 480px) {
-    main {
-      padding: 0 1.5rem;
-    }
-  }
-
-  @media screen and (min-width: 968px) {
-    main {
-      padding: 0 2rem;
-    }
-  }
-</style>
