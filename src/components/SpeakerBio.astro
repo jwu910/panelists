@@ -1,5 +1,4 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
 import ProfilePhoto from "./ProfilePhoto.astro";
 import StyledGradient from "./StyledGradient";
 export interface Props {
@@ -16,23 +15,17 @@ export interface Props {
   };
 }
 
-// const { name, currentTitle, url, pronouns, currentEmployer, profileImage } =
-//   Astro.props;
-
 const { speaker } = Astro.props;
-console.log(speaker);
-const { url, events } = speaker;
+const { url } = speaker;
 const {
   blurb = "",
   profileImage,
   name,
   pronouns,
   currentTitle,
-  currentEmployer,
 } = speaker.details;
 ---
 
-<!-- <h1>{speaker.details.name}</h1> -->
 <li class="profile-section">
   <div class="profile-section__photo">
     <a aria-label={`link to ${name}'s detail page'`} href={url}>
@@ -52,35 +45,19 @@ const {
     <p>{blurb}</p>
   </div>
 </li>
-<!-- <BaseLayout title={`${speaker.details.name}'s' Bio`} /> -->
-
-<!-- Create styles so each profile section looks like a card, elegant, and has consistent spacing and padding with the other elements on the page
-- Use css
-- use the classes described above
-
-
--->
 
 <style lang="scss">
   .profile-section {
     align-items: center;
-    margin: auto;
     background-color: var(--color-background);
-    // border-radius: 1rem;
-    // box-shadow: 0 0 0.5rem 0.25rem var(--color-shadow);
     display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
-    // max-width: 100%;
-    width: 100%;
-    // min-width: 100%;
     padding: 1rem;
     flex-grow: 1 0 100%;
 
     @media (min-width: 480px) {
-      width: 30vw;
-      margin: 0;
       flex-direction: column;
+      flex-grow: 1;
+      margin: 0;
     }
 
     @media screen and (min-width: 768px) {
@@ -88,9 +65,7 @@ const {
     }
 
     &__photo {
-      // height: 100%;
       display: flex;
-      // flex-grow: 1;
       flex-direction: row;
       justify-content: flex-start;
 
@@ -107,7 +82,6 @@ const {
     &__details {
       margin-left: 1rem;
       flex-grow: 1;
-      // align-items: flex-start;
 
       @media (min-width: 480px) {
         margin: 0;

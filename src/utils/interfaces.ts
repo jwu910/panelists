@@ -12,5 +12,6 @@ export interface ISpeaker extends AstroInstance {
 }
 
 export interface IEvent extends AstroInstance {
-  eventName: string;
+  eventName?: string;
+  eventNickname?: string;
 }

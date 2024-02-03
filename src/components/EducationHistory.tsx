@@ -3,7 +3,7 @@ import StyledGradient from "./StyledGradient";
 export type Education = {
   school: string;
   focus: string;
-  year: string;
+  year?: string;
 };
 
 interface Props {
@@ -19,7 +19,7 @@ const EducationHistory = (props: Props) => {
           props.educationHistory.map((education) => (
             <li key={`${education.school}-${education.year}`}>
               <p>
-                {education.year} -{" "}
+                {education.year && `${education.year} - `}
                 <StyledGradient>{education.school}</StyledGradient> -{" "}
                 {education.focus}
               </p>

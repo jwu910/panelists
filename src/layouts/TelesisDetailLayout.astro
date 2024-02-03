@@ -1,0 +1,55 @@
+---
+import ProfilePhoto from "@components/ProfilePhoto.astro";
+import StyledGradient from "@components/StyledGradient";
+import BaseLayout from "./BaseLayout.astro";
+
+const { telesisDetails = [], eventNickname, profileImage } = Astro.props;
+---
+
+<BaseLayout
+  title={"Telesis"}
+  footerLabel={eventNickname}
+  footerRoute={"/events/telesis-20240209"}
+>
+  <h1>
+    <StyledGradient text={"Joshua Wu"} />
+  </h1>
+  <div class="profile-detail">
+    <ProfilePhoto fullPage src={profileImage} name={"Joshua Wu"} />
+  </div>
+
+  <h2>
+    <StyledGradient text={"Frontend Engineer"} /> at{" "}
+    <StyledGradient text={"Pepperdata"} />
+  </h2>
+
+  <ul>
+    {
+      telesisDetails.map((detail: string) => (
+        <li>
+          <h3>{detail as string}</h3>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
+
+<style lang="scss">
+  body {
+    background: linear-gradient(
+      330deg,
+      var(--gradient-bg-color) 10%,
+      white 50%
+    );
+
+    @media screen and (min-width: 768px) {
+      padding-top: 5%;
+    }
+  }
+
+  .profile-detail {
+    display: flex;
+    margin: 0;
+    margin-right: auto;
+  }
+</style>

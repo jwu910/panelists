@@ -1,6 +1,7 @@
 ---
 import profileImage from "@assets/joshua.jpg";
 import PanelistDetailLayout from "@layouts/PanelistDetailLayout.astro";
+import TelesisDetailLayout from "@layouts/TelesisDetailLayout.astro";
 
 export const details = {
   name: "Joshua Wu",
@@ -8,6 +9,10 @@ export const details = {
   currentTitle: "Frontend Engineer",
   currentEmployer: "Pepperdata",
   jobHistory: [
+    {
+      company: "Pepperdata",
+      title: "Frontend Engineer",
+    },
     {
       company: "Polly",
       title: "Software Engineer",
@@ -25,27 +30,53 @@ export const details = {
     {
       school: "California State Polytechnic University, Pomona",
       focus: "B.A. - Business Admin. - Management and Human Resources",
-      year: "2013",
+      // year: "2013",
     },
   ],
   profileImage: profileImage,
   linkedinHref: "https://www.linkedin.com/in/wujoshua/",
+
+  //job title and description of duties/tasks, education/training needed, courses to take in school, salary
+  // range, work environment, advancement possibilities, and related jobs.
+
+  telesisDetails: [
+    "I am a software engineer of 7 years without a computer science degree and a probably a lifetime of ADHD.",
+    "My daily duties include: building dashboards to help visualize billions of data points on easy to read charts/graphs, working with other engineers, and finding solutions to problems/bugs within our application.",
+    "Many software engineers study Computer Science at university, but there are also self-taught, and bootcamp graduates that become software engineers.",
+    "Salary ranges can vary depending on your location. Los Angeles average salary is $150,000 and San Francisco is closer to $160,000 per year.",
+  ],
 };
-export const events = ["2023-07-07", "2023-08-08"];
+export const events = ["2023-07-07", "2023-08-08", "2024-02-09"];
+
+const { eventName } = Astro.props;
 ---
 
-<PanelistDetailLayout
-  currentEmployer={details.currentEmployer}
-  currentTitle={details.currentTitle}
-  educationHistory={details.educationHistory}
-  jobHistory={details.jobHistory}
-  linkedinHref={details.linkedinHref}
-  name={details.name}
-  profileImage={profileImage}
+{
+  events.includes("2024-02-09") ? (
+    <TelesisDetailLayout
+      {...details}
+      profileImage={profileImage}
+      eventRoute="/events/telesis-20240209"
+      eventNickname="Telesis Career Day"
+    />
+  ) : (
+    <PanelistDetailLayout
+      currentEmployer={details.currentEmployer}
+      currentTitle={details.currentTitle}
+      educationHistory={details.educationHistory}
+      jobHistory={details.jobHistory}
+      linkedinHref={details.linkedinHref}
+      name={details.name}
+      profileImage={profileImage}
+    />
+  )
+}
+
+<!-- TODO: Replace event route and eventNickname -->
+<!--
   eventRoute={`/events/cpp-eiyf-${events[events.length - 1].replaceAll(
     "-",
     "",
   )}`}
   eventNickname="CPP EIYF 2023 August"
-/>
-<!-- TODO: Replace event route and eventNickname -->
+-->

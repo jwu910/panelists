@@ -30,6 +30,8 @@ const { title, footerLabel, footerRoute } = Astro.props;
     </main>
   </body>
   <footer>
+    <a href="/all">All</a>
+    <span>{" | "}</span>
     {footerRoute ? <a href={footerRoute}>{footerLabel}</a> : footerLabel}
   </footer>
 </html>
@@ -81,11 +83,12 @@ const { title, footerLabel, footerRoute } = Astro.props;
     padding: 0 1rem;
     margin-left: auto;
     margin-right: auto;
-    max-width: 1200px;
+    max-width: 768px;
   }
 
   footer {
     margin-top: auto;
+    padding: 2rem;
   }
   p {
     margin-top: 0.5rem;
