@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const allPresentations = await Astro.glob(
+  "src/pages/presentations/**/index.astro",
+);
+---
+
+<BaseLayout title="Telesis Career Day Presentation">
+  <ul>
+    {
+      allPresentations.map((post) => {
+        return (
+          post?.url && (
+            <li>
+              <a href={`${post.url}`}>
+                {post?.url
+                  ?.split("/")
+                  ?.pop()
+                  ?.toLowerCase()
+                  .split("-")
+                  .map((s) => s.charAt(0).toUpperCase() + s.substring(1))}
+              </a>
+            </li>
+          )
+        );
+      })
+    }
+  </ul>
+</BaseLayout>

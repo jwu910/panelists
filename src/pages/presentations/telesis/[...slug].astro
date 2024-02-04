@@ -1,0 +1,29 @@
+---
+const { slug } = Astro.params;
+
+if (slug === undefined) {
+  throw new Error("Slug is required");
+}
+
+import { getCollection } from "astro:content";
+import PresenatationView from "@layouts/PresentationView.astro";
+import StyledGradient from "@components/StyledGradient";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("presentations-telesis-20240209");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+export const prerender = true;
+---
+
+<PresenatationView frontmatter={entry.data}>
+  <h1><StyledGradient text="Joshua Wu" /></h1>
+  <Content />
+</PresenatationView>

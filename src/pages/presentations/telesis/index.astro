@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { PRESENTATIONS } from "@utils/constants";
+
+const allContent = await getCollection("presentations-telesis-20240209");
+---
+
+<BaseLayout title="Telesis Career Day Presentation">
+  <ul>
+    {
+      allContent.map((post) => (
+        <li>
+          <a
+            href={`/presentations/telesis/${post.slug}/`}
+            title={post.data.title}
+          >
+            {post.data.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

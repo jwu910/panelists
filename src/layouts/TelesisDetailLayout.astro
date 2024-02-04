@@ -22,7 +22,6 @@ const { telesisDetails = [], eventNickname, profileImage } = Astro.props;
     <StyledGradient text={"Frontend Engineer"} /> at{" "}
     <StyledGradient text={"Pepperdata"} />
   </h2>
-
   <ul>
     {
       telesisDetails.map((detail: string) => (
@@ -43,7 +42,7 @@ const { telesisDetails = [], eventNickname, profileImage } = Astro.props;
     );
 
     @media screen and (min-width: 768px) {
-      padding-top: 5%;
+      // padding-top: 5%;
     }
   }
 

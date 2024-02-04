@@ -1,0 +1,13 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const { title, footerRoute, footerLabel } = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  footerRoute="/presentations/telesis"
+  footerLabel="Telesis Presentation"
+>
+  <slot />
+</BaseLayout>
