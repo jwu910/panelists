@@ -54,7 +54,13 @@ export const details = {
     "Software engineers can also work in adjacent fields like Project Management, IT, Data Science, Artificial Intelligence/Machine Learning, or Cyber Security",
   ],
 };
-export const events = ["2023-07-07", "2023-08-08", "2024-02-09", "2024-07-11"];
+export const events = [
+  "2023-07-07",
+  "2023-08-08",
+  "2024-02-09",
+  "2024-07-11",
+  "2024-07-18",
+];
 
 const { eventName } = Astro.props;
 ---
@@ -87,6 +93,11 @@ const { eventName } = Astro.props;
   linkedinHref={details.linkedinHref}
   name={details.name}
   profileImage={profileImage}
+  eventRoute={`/events/cpp-eiyf-${events[events.length - 1].replaceAll(
+    "-",
+    "",
+  )}`}
+  eventNickname="CPP EIYF 2024 July 18"
 />
 
 <!-- TODO: Replace event route and eventNickname -->
