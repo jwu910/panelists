@@ -34,18 +34,18 @@ const { title, footerLabel, footerRoute } = Astro.props;
     <footer>
       <div>
         <a href="/all">All Talks</a>
-        <span>{" | "}</span>
+        <span class="spacer">{" | "}</span>
         <a href="/presentations">All Presentations</a>
-        <span>{" | "}</span>
+        <span class="spacer">{" | "}</span>
         <a href="/resources">Resources</a>
-        <span>{" | "}</span>
+        <span class="spacer">{" | "}</span>
         {footerRoute ? <a href={footerRoute}>{footerLabel}</a> : footerLabel}
       </div>
       <div>
         <a href="https://github.com/jwu910/panelists"
           ><Icon name="mdi:github" />See the Source Code</a
         >
-        <span>{" | "}</span>
+        <span class="spacer">{" | "}</span>
         <a href="https://netlify.com"
           ><Icon name="mdi:microsoft-internet-explorer" />{
             "Hosted for FREE on Netlify"
@@ -105,20 +105,19 @@ const { title, footerLabel, footerRoute } = Astro.props;
 
       footer {
         display: flex;
+        flex-direction: column;
         margin-top: auto;
-        padding: 2rem;
-        white-space: preserve-spaces;
+        padding: 1rem;
+
         justify-content: space-between;
+
+        .spacer {
+          display: none;
+        }
 
         div {
           display: flex;
-          a {
-            display: flex;
-            [data-icon] {
-              font-size: 1.2rem;
-              margin: auto;
-            }
-          }
+          flex-direction: column;
         }
       }
       p {
@@ -165,11 +164,36 @@ const { title, footerLabel, footerRoute } = Astro.props;
         main {
           padding: 0 1.5rem;
         }
+
+        footer {
+          padding: 2rem;
+          white-space: preserve-spaces;
+
+          div {
+            flex-direction: row;
+
+            a {
+              display: flex;
+
+              [data-icon] {
+                font-size: 1.2rem;
+                margin: auto;
+              }
+            }
+          }
+          .spacer {
+            display: unset;
+          }
+        }
       }
 
       @media screen and (min-width: 968px) {
         main {
           padding: 0 2rem;
+        }
+
+        footer {
+          flex-direction: row;
         }
       }
     </style>
