@@ -15,3 +15,9 @@ export interface IEvent extends AstroInstance {
   eventName?: string;
   eventNickname?: string;
 }
+
+export interface IResource {
+  description: string;
+  nickname: string;
+  url: string;
+}

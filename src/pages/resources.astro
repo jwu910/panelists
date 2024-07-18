@@ -1,0 +1,46 @@
+---
+import StyledGradient from "@components/StyledGradient";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import type { IResource } from "@utils/interfaces";
+
+const resources: IResource[] = [
+  {
+    nickname: "freecodecamp.org",
+    url: "https://www.freecodecamp.org/",
+    description:
+      "A nonprofit organization that offers free courses to learn to code, build projects, and earn certifications.",
+  },
+  {
+    nickname: "roadmap.sh",
+    url: "https://roadmap.sh/",
+    description:
+      "A community-driven project that provides roadmaps and resources to help you learn different programming topics, languages, and skills.",
+  },
+  {
+    nickname: "Awesome for Beginners",
+    url: "https://github.com/MunGell/awesome-for-beginners",
+    description:
+      "A curated list of beginner-friendly resources and open source issues grouped by language/tool.",
+  },
+];
+---
+
+<BaseLayout title="Resources">
+  <h1><StyledGradient text="Resources" /></h1>
+  <ul>
+    {
+      resources.map((resource) => {
+        return (
+          <li>
+            <h2>
+              <a class="nav-link" href={resource.url}>
+                <StyledGradient text={resource.nickname} />
+              </a>
+            </h2>
+            <p>{resource.description}</p>
+          </li>
+        );
+      })
+    }
+  </ul>
+</BaseLayout>
