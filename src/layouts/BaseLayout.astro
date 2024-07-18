@@ -5,6 +5,7 @@ import "@fontsource/atkinson-hyperlegible"; // Defaults to weight 400
 import "@fontsource/atkinson-hyperlegible/400.css"; // Specify weight
 import "@fontsource/atkinson-hyperlegible/400-italic.css"; // Specify weight and style
 import { ViewTransitions } from "astro:transitions";
+import { Icon } from "astro-icon/components";
 
 export interface Props {
   title: string;
@@ -31,13 +32,26 @@ const { title, footerLabel, footerRoute } = Astro.props;
       <slot />
     </main>
     <footer>
-      <a href="/all">All Talks</a>
-      <span>{" | "}</span>
-      <a href="/presentations">All Presentations</a>
-      <span>{" | "}</span>
-      <a href="/resources">Resources</a>
-      <span>{" | "}</span>
-      {footerRoute ? <a href={footerRoute}>{footerLabel}</a> : footerLabel}
+      <div>
+        <a href="/all">All Talks</a>
+        <span>{" | "}</span>
+        <a href="/presentations">All Presentations</a>
+        <span>{" | "}</span>
+        <a href="/resources">Resources</a>
+        <span>{" | "}</span>
+        {footerRoute ? <a href={footerRoute}>{footerLabel}</a> : footerLabel}
+      </div>
+      <div>
+        <a href="https://github.com/jwu910/panelists"
+          ><Icon name="mdi:github" />See the Source Code</a
+        >
+        <span>{" | "}</span>
+        <a href="https://netlify.com"
+          ><Icon name="mdi:microsoft-internet-explorer" />{
+            "Hosted for FREE on Netlify"
+          }</a
+        >
+      </div>
     </footer>
     <style is:global lang="scss">
       :root {
@@ -90,8 +104,22 @@ const { title, footerLabel, footerRoute } = Astro.props;
       }
 
       footer {
+        display: flex;
         margin-top: auto;
         padding: 2rem;
+        white-space: preserve-spaces;
+        justify-content: space-between;
+
+        div {
+          display: flex;
+          a {
+            display: flex;
+            [data-icon] {
+              font-size: 1.2rem;
+              margin: auto;
+            }
+          }
+        }
       }
       p {
         margin-top: 0.5rem;
@@ -106,6 +134,10 @@ const { title, footerLabel, footerRoute } = Astro.props;
       }
       a {
         color: inherit;
+
+        &:hover {
+          color: rgb(var(--accent));
+        }
       }
 
       a:active {
